@@ -14,6 +14,16 @@ function obtenerMayor(x, y) {
   if (x === y) {
     return x || y;
   }
+
+
+
+  return Math.max (x,y);
+  
+
+
+if (x<y) return x;
+if (y>x) return y;
+
 }
 
 function mayoriaDeEdad(edad) {
@@ -26,6 +36,10 @@ function mayoriaDeEdad(edad) {
   if (edad < 18) {
     return "Not allowed";
   }
+
+
+  if (edad>=18) return "Allowed";
+  else return "Not Allowed";
 }
   
 function conection(status) {
@@ -42,6 +56,13 @@ function conection(status) {
   } else {
     return "Offline";
   }
+
+
+
+
+  if (status === 1) return "Online";
+  if (status === 2) return "Away";
+  else return "Offline";
 
 }
 
@@ -64,6 +85,20 @@ function saludo(idioma) {
     return "Hola!";
   }
 
+
+
+  if (idioma === "alemán") return "Guten Tag!";
+  if (idioma === "mandarín") return "Ni Hao!";
+  if (idioma === ingles) return "Hello!";
+  else return "Hola!"
+
+
+  switch (idioma) {
+case "alemán": return "Guten Taag!";
+case "mandarín": return "Ni Hao";
+case "ingles": return "Hello!";
+defalut: return "Hola!"; 
+  }
 }
 
 function colors(color) {
@@ -99,6 +134,13 @@ function esDiezOCinco(numero) {
     } else {
       return false;
     }
+
+
+
+
+    if (numero === 10 || numero === 5) return true;
+    else return false;
+
 }
 
 function estaEnRango(numero) {
@@ -110,6 +152,12 @@ function estaEnRango(numero) {
     } else {
       return false;
     }
+
+
+
+    if (numero < 50 && numero > 20) return true;
+    else return false;
+
 }
 
 function esEntero(numero) {
@@ -126,6 +174,18 @@ function esEntero(numero) {
       } else{
         return false;
       }
+
+
+
+      if (Number.isInteger (numero)) return true;
+      else return false;
+
+
+
+
+      if (numero === Math.floor (numero)) return true;
+      else return false;
+
 }
 
 function fizzBuzz(numero) {
@@ -142,8 +202,26 @@ function fizzBuzz(numero) {
   else if (numero % 5 === 0) {
     return "buzz";
   } else {
-    return numero;
+    return numero
+
   }
+
+
+
+
+  if (numero % 15 === 0) return "fizzbuzz";
+    if (numero % 3 === 0) return "fizz";
+    if (numero % 5 === 0) return "buzz";
+    return numero;
+
+
+
+
+  if (numero % 3 === 0 && numero % 5 === 0) return "fizzbuzz";
+  else if (numero % 3 === 0) return "fizz";
+  else if (numero % 5 === 0) return "buzz";
+  else return numero;
+
 
 }
 
@@ -186,6 +264,16 @@ function esPrimo(numero) {
   }
   return true;
 
+
+
+  if (numero === 0 || numero ===1) return false;
+
+  for (var i = 2; i < numero; i++) {
+    if (numero % i === 0) return false;
+  }
+  return true;
+
+
 }
 
 function esVerdadero(valor){
@@ -193,15 +281,14 @@ function esVerdadero(valor){
   //si su valor es true y “Soy falso” si su valor es false.
   //Escribe tu código aquí
 if (valor===true){
-  return "Soy verdadero"
+  return "Soy verdadero";
 }else if (valor===false){
   return "Soy falso";
 }
 
 
-if (valor===true){
-  return "Soy verdadero"
-} return "Soy falso";
+if (valor===true) return "Soy verdadero";
+return "Soy falso";
 
 }
 
@@ -214,6 +301,14 @@ function tablaDelSeis(){
     tablaDelSeis.push(i*6);
   } 
   return tablaDelSeis;
+
+
+  var tablaDelSeis=[];
+  for (var i=0; i<11; i++){
+    tablaDelSeis.push(i*6);
+  } 
+  return tablaDelSeis;
+
 }
 
 function tieneTresDigitos(numero){
