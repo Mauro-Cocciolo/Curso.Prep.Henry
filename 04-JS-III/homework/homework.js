@@ -196,7 +196,7 @@ function empiezaConNueve(n) {
   //Desarrolle una función que recibe como parámetro un número entero n. Debe retornar true si el entero 
   //inicia con 9 y false en otro caso. // Ojete: los strings too los puedo tratar como formados por elementos []
   // y [0] seria el primer elemento
-  //Escribe tu código aquí
+  //Escribe tu código aquí  
   var str = String(n);
   if (str[0] === "9") {
     return true;
@@ -212,6 +212,9 @@ function todosIguales(arreglo) {
   //retornar true, caso contrario retornar false.
   //Escribe tu código aquí  
   // Voy a hacer que se compare el i con el i que sigue y si no es igual es false
+  // Ej: [2,2,2,2,2,2,2,2,87] con la funcion yo hago que aggeglo en la posicion i se compare con el que sigue, 
+  // pongo el -1 porque si no el ultimo no tiene con que compararse y cae al vacío
+
   for (var i = 0; i < arreglo.length -1; i++) {
     if (arreglo[i] !== arreglo[i + 1]) {
       return false;
@@ -226,7 +229,8 @@ function mesesDelAño(array) {
   // "Enero", "Marzo" y "Noviembre", guardarlo en nuevo array y retornarlo.
   //Si alguno de los meses no está, devolver: "No se encontraron los meses pedidos"
   // Tu código:
-  //Ojo: si no estan los tres tengo que devolver no se encontraron
+  //Ojo: si no estan los tres tengo que devolver no se encontraron, tienen que estar los tres juntos si o si, aunque solo falte uno 
+  // devuelvo que no se encontraron
 var mesesBuscados = [];
 for (var i = 0; i < array.length; i++) {
   if (
@@ -267,7 +271,9 @@ function breakStatement(numero) {
   //Si en algún momento el valor de la suma y la cantidad de iteraciones coinciden, debe interrumpirse la ejecución y 
   //devolver: "Se interrumpió la ejecución"
   //Pista: usá el statement 'break'
-  // Tu código:
+  // Tu código: // abajo lo que dice es que si i es menor que 10 es porque se breiqueó, si no tendría que llegar
+  // al 10 sin problemas, pero si se cortó antes el i nunca llegó a 10 veces, que dicho sea de paso son 10 posiciones,
+  // y entonces le hago returnear que se interrumpió la ejecución.
   var array = [];
   for (var i = 0; i < 10; i++) {
     numero = numero + 2;
