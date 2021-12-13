@@ -83,6 +83,17 @@ function tieneEmail(usuario) {
   } else {
     return false;
   }
+
+
+// O, si no, directamente, si usuario tiene una propiedad email, me va a retornar true, de lo contrario false.
+
+
+if(usuario.email) {
+  return true;
+} else {
+  return false;
+};
+
 }
 
 
