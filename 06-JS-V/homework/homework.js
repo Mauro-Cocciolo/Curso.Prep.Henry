@@ -8,13 +8,50 @@ function crearUsuario() {
   // {{nombre}} debe ser el nombre definido en cada instancia
   // Devuelve la clase
   // Tu código:
+
+  function Usuario(opciones) {
+    this.usuario = opciones.usuario;
+    this.nombre = opciones.nombre;
+    this.email = opciones.email;
+    this.password = opciones.password;
+  }  // ahora llamo al constructor Usuario, pongo prototype y el metodo que quiero agregar.
+  Usuario.prototype.saludar = function () {      // así si me olvidé y se lo quiero agregar despues de que cerré la funcion,
+    return "Hola, mi nombre es " + this.nombre;  // pero podría agregar el metodo en la función original tambien como hice abajo
+  }
+  return Usuario;
+
+// 
+
+
+  function Usuario(opciones) {
+    this.usuario = opciones.usuario;
+    this.nombre = opciones.nombre;
+    this.email = opciones.email;
+    this.password = opciones.password;      // acá agrego el metodo saludar en el prototype del constructor directamente
+    this.saludar = function () {
+      return "Hola, mi nombre es " + this.nombre;
+    }
+  }
+  return Usuario;
+
 }
+
+
 
 function agregarMetodoPrototype(Constructor) {
   // Agrega un método al Constructor del `prototype`
   // El método debe llamarse "saludar" y debe devolver la string "Hello World!"
   // Tu código:
+ // Entonces: llamo al Constructor, que en este caso es el parametro de la funcion, y le agrego el metodo saludar.
+
+ Constructor.prototype.saludar = function () {      
+  return "Hello World!";  
 }
+return Constructor; 
+
+}
+
+
 
 function agregarStringInvertida() {
   // Agrega un método al prototype de String que devuelva la misma cadena de caracteres, pero invertida.
@@ -22,7 +59,16 @@ function agregarStringInvertida() {
   // Ej: 'menem'.reverse() => menem
   // 'toni'.reverse() => 'inot'
   // Pista: Necesitarás usar "this" dentro de "reverse"
-}
+
+  // Entonces: llamo al constructor String
+  String.prototype.reverse= function () {
+    return this.split("").reverse().join(""); // la palabra reservada split divide los elementos de un array, "toni" en  "t" "o" "n" "i",
+  }                                           // y la  palabra reservada reverse los da vuelta "i" "n" "o" "t", 
+}                                   // y por ultimo la palabra join nos ca a unir los caracteres que estaban separados,
+                      //para devolver la misma cadena que tenia al principio solo que invertida, como pide el ejercicio,
+                                 // quedaría "inot".
+
+
 
 // ---------------------------------------------------------------------------//
   //Crea el constructor de la clase "Persona"
@@ -36,21 +82,40 @@ function agregarStringInvertida() {
     //  }
 
   class Persona {
-    constructor(/*Escribir los argumentos que recibe el constructor*/) {
+    constructor(/*Escribir los argumentos que recibe el constructor*/ nombre, apellido, edad, domicilio) {
       // Crea el constructor:
-
+      this.nombre = nombre;
+      this.apellido = apellido;
+      this.edad = edad;
+      this.domicilio = domicilio;
+    }                               //Cuando yo vaya a declarar una nueva instancia, en este caso una nueva persona, 
+    detalle () {                  //voy a hacer:  var person=new Persona() y así le paso a la nueva instancia los 
+      return {                    // parametros de la clase Persona, es decir nombre, apellido, etc. el famoso this,
+        Nombre: this.nombre,       // va a hacer referencia a esa nueva variable, a la instancia que creé 
+        Apellido: this.apellido,     
+        Edad: this.edad,
+        Domicilio: this.domicilio,
+      }
     }
+
 }
 
 function crearInstanciaPersona(nombre, apellido, edad, dir) {
   //Con esta función vamos a crear una nueva persona a partir de nuestro constructor de persona (creado en el ejercicio anterior)
   //Recibirá los valores "Juan", "Perez", 22, "Saavedra 123" para sus respectivas propiedades
   //Devolver la nueva persona creada
+var person = new Persona ("Juan", "Perez", 22, "Saavedra 123")
+return person
+
 }
   
 function agregarMetodo() {
   //La función agrega un método "datos" a la clase Persona que toma el nombre y la edad de la persona y devuelve: 
   //Ej: "Juan, 22 años"
+
+  Persona.prototype.datos = function() {
+    return this.nombre + ", " + this.edad + " años";
+  }
 }
   
 
