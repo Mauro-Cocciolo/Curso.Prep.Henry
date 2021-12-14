@@ -14,6 +14,19 @@ function crearGato(nombre, edad) {
     }
   };
   return objeto;
+
+
+
+
+  var gato = {
+    nombre,        // puedo hacer así si coinciden propiedad con valor
+    edad,
+    meow: function() {
+      return "Meow!";
+    }
+  };
+  return gato;
+
 }
 
 
@@ -44,10 +57,15 @@ function multiplicarNumeroDesconocidoPorCinco(objetoMisterioso) {
   // "objetoMisterioso" tiene una propiedad llamada "numeroMisterioso"
   // Multiplica el numeroMisterioso por 5 y devuelve el producto
   // Tu código:
-  var resultado = objetoMisterioso.numeroMisterioso * 5;
-  return resultado;
-
+  /*
+objetoMisterioso {
+  numeroMisterioso: numero que desconozco
 }
+  */
+  var resultado = objetoMisterioso.numeroMisterioso * 5;   // objetoM.numeroM son las cordenadas de a donde tiene que pararse
+  return resultado;                                        // para hacer la cuenta que quiero que haga
+}
+
 
 function eliminarPropiedad(objeto, unaPropiedad) {
   // Elimina la propiedad de objeto cuyo nombre está pasado por el parametro unaPropiedad 
@@ -56,9 +74,10 @@ function eliminarPropiedad(objeto, unaPropiedad) {
   // Tu código: // Ojote: de vuelta, acá el verdadero nombre no es unaPropiedad, 
   // puede aparecer cualquier cosa detras, uso [] porque el punto me devolvería exactamente unaPropiedad
   // y ese no es el nombre verdadero que está detrás
-delete objeto[unaPropiedad];
+delete objeto[unaPropiedad];   // no uso comillas porque está pasado por el parametro, yo no se como se llama la propiedad
 return objeto;
 }
+
 
 function nuevoUsuario(nombre, email, password) {
   // Crea un nuevo objeto con las propiedades coincidiendo con los argumentos que se pasan a la función
@@ -70,7 +89,19 @@ var nuevoobjeto = {
   password: password,
 };
 return nuevoobjeto;
+
+
+
+
+var nuevoobjeto = {
+  nombre,
+  email,
+  password,
+};
+return nuevoobjeto;
+
 }
+
 
 function tieneEmail(usuario) {
   // Devuelve "true" si el usuario tiene un valor definido para la propiedad "email"
@@ -78,13 +109,28 @@ function tieneEmail(usuario) {
   // Tu código:
   // uso != porque le estoy diciendo que si no está vacío es que está lleno y entonces devuelva true,
   // no uso !== porque no me refiero al termino específico y puntual null
-  if(usuario.email != null) {
+  /*
+usuario {
+  email: ? 
+}
+  */
+  if(usuario.email != null) {     //usuario.email es la coordenada en donde se encuentra el valor en cuestión
     return true;
   } else {
     return false;
   }
 
 
+  // o
+
+  if(usuario.email === null) {     //usuario.email es la coordenada en donde se encuentra el valor en cuestión
+    return false;
+  } else {
+    return true;
+  }
+
+
+  
 // O, si no, directamente, si usuario tiene una propiedad email, me va a retornar true, de lo contrario false.
 
 
@@ -103,17 +149,46 @@ function tienePropiedad(objeto, propiedad) {
   // "propiedad" es un string
   // De lo contrario, devuelve "false"
   // Tu código:
+  /*
+objeto {
+  ¿propiedad?: ¿?
+}
+  */
   // si el objeto tiene adentro una propiedad de nombre propiedad, cuando busque [propiedad]
   // en el objeto, siempre con braquets por ser generico, 
   // tengo que encontrar un valor y por lo tanto el resultado de la busqueda no puede ser nulo, ergo, 
-  // si el resultado de la busqueda objeto [propiedad] es sitinto de nulo, es true, el objeto tiene puna propiedad
+  // si el resultado de la busqueda objeto [propiedad] es ditinto de nulo, es true, el objeto tiene puna propiedad
   // de nombre propiedad.
   if (objeto[propiedad] != null) {
     return true;
   } else {
     return false;
   }
+
+
+
+
+  if (objeto[propiedad]) {    // si objeto tiene una key o propiedad cuyo nombre es igual al valor 
+  return true;                // del argumento propiedad, too lo puedo verificar así.
+  } else {
+    return false;
+  }
+
+
+
+  // o 
+
+
+
+  if (objeto.hasOwnProperty (propiedad)) {
+    return true;
+  } else {
+    return false;
+  } 
+
 }
+
+
 
 function verificarPassword(usuario, password) {
   // Comprueba si la "password" enviada coincide con la propiedad "password" del objeto "usuario"
@@ -122,14 +197,16 @@ function verificarPassword(usuario, password) {
   // // Tu código:
   // Las comillas del primer password son porque yo ya se que dentro del objeto hay, definitivamente, porque 
   // me lo dicen, un propiedad llamada password (sería :
-  //usuario : {
-  // password: algun valor, ej, "Hola!"
- // } ), por eso las comillas.
+  /*
+  usuario {
+  password: algun valor, ej, "Hola!"
+  }  por eso las comillas.
+  */
   // El segundo password es el que me pasan, el que está de parametro en la funcion, que representaría el "Hola!",
-  //es decir, representaría el valor o contenido de la propiedad password que está dentro del objeto.
+  //es decir, representaría el valor o contenido de la propiedad password que está dentro del objeto usuario.
   //Bien podría, siendo que ya se el nombre
   // especifico de la propiedad, usar punto para invocarla, solo que sin comillas.
-  // Si el parametro en vez de llamarse password se llamara pass, pondría: if (usuario["password"]===pass)
+  // Si el parametro de la fcion en vez de llamarse password se llamara pass, pondría: if (usuario["password"]===pass)
 
   if (usuario["password"] === password) {
     return true;
@@ -143,15 +220,24 @@ function verificarPassword(usuario, password) {
     return true;
   } else {
     return false;
-  }
+  }; 
 }
+
+
 
 function actualizarPassword(usuario, nuevaPassword) {
   // Reemplaza la contraseña existente en el objeto "usuario" con el valor de "nuevagPassword"
   // Devuelve el objeto
   // Tu código:
+  /*
+usuario {
+  password: con un valor x que tengo que sustituir por el valor del argumento que me pasan, 
+  es decir, el valor de nuevaPassword.
+}
+  */
+ // que el objeto usuario tiene una key o propiedad password lo intuyo de la consigna
   
- usuario.password = nuevaPassword;
+ usuario.password = nuevaPassword;    // pongo las cordenadas, us.pas = el valor por el que quiero cambiar
 return usuario;
 
 
@@ -166,6 +252,8 @@ return usuario;
 
 }
 
+
+
 function agregarAmigo(usuario, nuevoAmigo) {
   // "usuario" tiene una propiedad llamada "amigos" que es un array
   // Agrega "nuevoAmigo" al final de ese array
@@ -173,12 +261,15 @@ function agregarAmigo(usuario, nuevoAmigo) {
   // // Tu código:
   // A ver, sería algo así lo que existe:
   //  usuario {
-  //  amigos: [bla, ble, bli, blo, blu] 
+  //  amigos: [bla, ble, bli, blo, blu] // tengo que agregar nuevoAmigo al final, despues de blu
 
-usuario.amigos.push(nuevoAmigo);
+usuario.amigos.push(nuevoAmigo);       // usuario {
+                                       //  amigos: [bla, ble, bli, blo, blu, nuevoAmigo] queda así
 return usuario;
 
 }
+
+
 
 function pasarUsuarioAPremium(usuarios) {
   // "usuarios" es un array de objetos "usuario"
@@ -191,11 +282,14 @@ function pasarUsuarioAPremium(usuarios) {
 usuarios  [
   usuario  {
     esPremium: false,
+  usuario {
+    esPremium: false,
+  } etc
   }
 ]
   */ // si me pide que defina como true el valor de cada propiedad esPremium, significa que antes eran false.
   // voy a usar el objeto map, que sirve para ejecutar una acción por cada elemento del array, tomandolo como argumento;
-  // yo le pido que mapee usuarios y que por cada elemento dentro de usuarios, a la propiedad esPremium de cada elemento, 
+  // yo le pido que mapee usuarios y que por cada elemento dentro de usuarios, en este caso objetos usuario, a la propiedad esPremium de cada elemento, 
   // la defina con true. Así map setea los true.
   // // Too, lo puedo resolver con un for.
 
@@ -228,10 +322,13 @@ usuario {
   posts: [ 
     post {
     likes: un entero,
-  }
- ]
-}
+    post {
+      likes: un entero,
+    } etc
+   ]
+ }
   */
+
   var acumulador = 0; //porque me piden una suma, una acumulación 
   usuario.posts.map(function (element) {
     acumulador += element.likes;         // tambien podria haber puesto acumulador = acumulador + elements.like;
@@ -239,13 +336,17 @@ usuario {
   return acumulador;
 
 
+
+
   var acumulador = 0;
   for (var i = 0; i < usuario.posts.length; i++) {
-    acumulador += usuario.posts[i].likes     // o sea acumulador = acumulador + usuario.posts[i].likes
-  };
-  return acumulador;
+    acumulador += usuario.posts[i].likes     // o sea acumulador = acumulador + usuario.posts[i].likes  
+  };                                         // suma al acumulador todos los likes de cada posts de usuario.
 
 }
+
+
+
 
 function agregarMetodoCalculoDescuento(producto) {
   // Agregar un método (función) al objeto "producto" llamado "calcularPrecioDescuento"
@@ -266,11 +367,11 @@ producto {
   precio: 100, (por ejemplo)
   porcentajeDeDescuento: 0.2, (como dice el ejemplo)
 
-  calcularPrecioDescuento: funcion () {                          //Esto es lo que yo tengo que agregar, un metodo
+  calcularPrecioDescuento: funcion () {                         //Esto es lo que yo tengo que agregar, un metodo
 
   }
 }
-*/ //me paro en las cordenadas producto.calcular... para crear la fcion
+*/ //me paro en las cordenadas producto.calcular... para crear la fcion de ese nombre que me piden
 
   producto.calcularPrecioDescuento = function () {
     var precioConDescuento =
