@@ -91,8 +91,8 @@ function agregarStringInvertida() {
     }                               //Cuando yo vaya a declarar una nueva instancia, en este caso una nueva persona, 
     detalle () {                  //voy a hacer:  var person=new Persona() y así le paso a la nueva instancia los 
       return {                    // parametros de la clase Persona, es decir nombre, apellido, etc. el famoso this,
-        Nombre: this.nombre,       // va a hacer referencia a esa nueva variable, a la instancia que creé 
-        Apellido: this.apellido,     
+        Nombre: this.nombre,       // va a hacer referencia a esa nueva variable, a la instancia que creé, donde por ejemplo,
+        Apellido: this.apellido,    // this.nombre va a ser el nombre que le de al tipo 
         Edad: this.edad,
         Domicilio: this.domicilio,
       }
@@ -114,10 +114,10 @@ function agregarMetodo() {
   //Ej: "Juan, 22 años"
 
   Persona.prototype.datos = function() {
-    return this.nombre + ", " + this.edad + " años";
-  }
-}
-  
+    return this.nombre + ", " + this.edad + " años"; // ves, devuelve this.nombre, o sea Juan en este caso,
+  }                                                 // + agrego la coma y un espacio para que me devuelva "Juan, ",
+}                               // despues agrego su edad con this.edad, o sea 22, y le sumo un espacio seguido por el string
+                                // años para que quede "Juan, 22 años"
 
 // No modificar nada debajo de esta línea
 // --------------------------------
