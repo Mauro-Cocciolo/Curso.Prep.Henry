@@ -4,9 +4,9 @@ function mayuscula(nombre) {
   //La función recibe un nombre y debe devolver el mismo que recibe pero con su primer letra en mayúscula
   //ej: Recibe "mario" ----> Devuelve "Mario"
   //Tu código:
-  return nombre[0].toUpperCase() + nombre.slice(1) 
-}
-
+  return nombre[0].toUpperCase() + nombre.slice(1) //El segundo parámetro de slice() es opcional: 
+}                                //si no lo incluyes, el corte termina al final de la cadena original.
+                                 //Y, en este caso, arranca desde la posicion 1.
 
 
 function invocarCallback(cb) {
@@ -42,7 +42,7 @@ var suma = numeros.reduce(function (acumulador, elemento){  // el metodo reduce 
                                         // Al metodo reduce, yo le paso una funcion callback que reciba los dos argumentos de acumulador y elemento.                
 }, 0) // Como se trata de una suma quiero que el acumulador arranque en 0, si me pidieran multiplicar pondría 1 acá,
       // y acumulador *= elemento arriba. El resultado final de reduce siempre va a ser un unico valor, en este caso, la suma de todos los elementos del array numeros.
-cb(suma) // cuando invoque el acumulador, me va a tirar la suma de los elementos del array
+cb(suma) // Cuando invoque el acumulador, me va a tirar la suma de los elementos del array
 
 
 // too se podría hacer con for
