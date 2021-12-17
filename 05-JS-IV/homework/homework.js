@@ -74,8 +74,8 @@ function eliminarPropiedad(objeto, unaPropiedad) {
   // Tu código: // Ojote: de vuelta, acá el verdadero nombre no es unaPropiedad, 
   // puede aparecer cualquier cosa detras, uso [] porque el punto me devolvería exactamente unaPropiedad
   // y ese no es el nombre verdadero que está detrás
-delete objeto[unaPropiedad];   // no uso comillas porque está pasado por el parametro, yo no se como se llama la propiedad
-return objeto;
+delete objeto[unaPropiedad];   // no uso comillas porque está pasado por el parametro, yo no se como se llama la propiedad,
+return objeto;                 // es una variable.
 }
 
 
@@ -169,8 +169,8 @@ objeto {
 
 
   if (objeto[propiedad]) {    // si objeto tiene una key o propiedad cuyo nombre es igual al valor 
-  return true;                // del argumento propiedad, too lo puedo verificar así.
-  } else {
+  return true;                // del argumento propiedad, too lo puedo verificar así. Si existe
+  } else {                   // objeto[propiedad] me va a dar true, else, false. 
     return false;
   }
 
@@ -247,7 +247,7 @@ return usuario;
 
 
 
-  usuario[password] = nuevaPassword;
+  usuario[password] = nuevaPassword; // así me pasó tambien, se ve que es tambien una variable.
   return usuario;
 
 }
@@ -331,7 +331,7 @@ usuario {
 
   var acumulador = 0; //porque me piden una suma, una acumulación 
   usuario.posts.map(function (element) {
-    acumulador += element.likes;         // tambien podria haber puesto acumulador = acumulador + elements.like;
+    acumulador += element.likes;         // tambien podria haber puesto acumulador = acumulador + element.like;
   });
   return acumulador;
 
@@ -367,11 +367,11 @@ producto {
   precio: 100, (por ejemplo)
   porcentajeDeDescuento: 0.2, (como dice el ejemplo)
 
-  calcularPrecioDescuento: funcion () {                         //Esto es lo que yo tengo que agregar, un metodo
+  calcularPrecioDescuento: funcion () {        //Esto es lo que yo tengo que agregar, un metodo
 
   }
 }
-*/ //me paro en las cordenadas producto.calcular... para crear la fcion de ese nombre que me piden
+*/ //me paro en las eventuales cordenadas producto.calcular... para crear la fcion de ese nombre que me piden
 
   producto.calcularPrecioDescuento = function () {
     var precioConDescuento =

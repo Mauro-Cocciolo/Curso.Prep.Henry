@@ -17,7 +17,7 @@ function invocarCallback(cb) {
         // pasar esta fcion como cb (callback) escribo abajo: por ejemplo, una nueva fcion f2 que sea
 // function f2(cb){
   //        cb()} y así creé una fcion que me va a ejecutar un cb cuando la llame. Entonces, si despues abajo
-// escribo f2(f1) y ejecuto esta nueva fcion que acabo de llamar dandole enter, 
+// escribo f2(f1) y ejecuto esta nueva fcion que acabo de llamar, 
 //voy a ver que esta fcion f2 ejecuta a la f1 por parámetro y entonces también me va a imprimir Hola.
 
 
@@ -38,9 +38,9 @@ function sumarArray(numeros, cb) {
   //Tu código:
 
 var suma = numeros.reduce(function (acumulador, elemento){  // el metodo reduce crea un acumulador en el que va acumulando los elementos, 
-  return acumulador += elemento                             //yo le digo que los sume o los multiplique o lo que sea, en este caso los suma.
+  return acumulador += elemento //ac = ac + e      le digo que los sume o los multiplique o lo que sea, en este caso los suma.
                                         // Al metodo reduce, yo le paso una funcion callback que reciba los dos argumentos de acumulador y elemento.                
-}, 0) // como se trata de una suma quiero que el acumulador arranque en 0, si me pidieran multiplicar pondría 1 acá,
+}, 0) // Como se trata de una suma quiero que el acumulador arranque en 0, si me pidieran multiplicar pondría 1 acá,
       // y acumulador *= elemento arriba. El resultado final de reduce siempre va a ser un unico valor, en este caso, la suma de todos los elementos del array numeros.
 cb(suma) // cuando invoque el acumulador, me va a tirar la suma de los elementos del array
 
@@ -51,7 +51,7 @@ cb(suma) // cuando invoque el acumulador, me va a tirar la suma de los elementos
  var suma = 0
 
   for (var i = 0; i < numeros.length; i++) {
-    suma += numeros[i]
+    suma += numeros[i]  // suma = suma + numeros[i]
   } 
  /* cb(suma)  Aclaración: el cb(suma) lo pongo en verdecito porque si no me tira error, pero los ejercicios estan bien, 
               todos estan chequeados.
@@ -65,8 +65,8 @@ var suma= numeros.reduce((acumulador, elemento) => acumulador + elemento, 0)
 /* cb(suma)  Aclaración: idem que antes.
 */
 
-// con reduce too puedo sumar strings, si voy al RUNJS o a Google, boton derecho, inspsccionar, console, 
-//y pego lo siguiente en la console y ejecuto el console.log, me devuelve fran:
+// con reduce too puedo sumar strings, si voy al RUNJS o a Google, boton derecho, inspeccionar, console, 
+//y pego lo siguiente en la console y ejecuto el console.log, me devuelve "fran":
 /*
 var arr = ["f","r","a","n"]
 var str = arr.reduce(function(acc, e){
@@ -87,7 +87,7 @@ var str = arr.reduce(function(acc, e, i){
   return acc
 }
 }, "")
-console.log(str)   y vualé, devuelve an
+console.log(str)   y vualé, devuelve "an"
 */
 
 }
@@ -98,7 +98,7 @@ function forEach(array, cb) {
   // Itera sobre la matriz "array" y pasa los valores al callback uno por uno
   // Pista: Estarás invocando a `cb` varias veces (una por cada valor en la matriz)
   //Tu código:
-  array.forEach(function(element){  // forEach es otro metodo que recorre todos los elementos de un arreglo uno por uno
+  array.forEach(function(element){  // forEach es otro metodo que recorre todos los elementos de un arreglo uno por uno.
     cb(element);                    //forEach no retorna nada, a diferencia de map, por ej.
   });
 
@@ -118,7 +118,7 @@ function map(array, cb) {
   // El nuevo array debe tener la misma longitud que el array del argumento
   //Tu código:
   /*map es un metodo que, a diferencia del anterior, sí retorna algo. Se usa cuando vos querés hacer
-  lo mismo en todos los emementos.
+  lo mismo en todos los elementos.
   Por ejemplo si hago:
 
 var numbers = [1, 5, 10, 15]
@@ -179,7 +179,7 @@ function filter(array) {
 let NewArray = array.filter(elementos => elementos [0] === "a");   // puedo poner e, elemento, elementos, elefantes, etc
 return NewArray;                                                   // igual se refiere a los elementos del array. 
                                                         //igual, guarda con esta ultima fcion, dicen que parece sencilla 
-                                                        // but no lo es, mejo no usar por ahora
+                                                        // but no lo es, mejor no usar por ahora
 
 }
 
