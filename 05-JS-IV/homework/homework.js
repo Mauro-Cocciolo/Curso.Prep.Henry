@@ -34,15 +34,18 @@ function agregarPropiedad(objeto, property) {
   // Agrega una propiedad al objeto (argumento "objeto") con el valor `null`
   // Devuelve el objeto
   // NOTA: El nombre de la propiedad no es "propiedad", el nombre es el valor del argumento llamado "property" (una cadena/string)
-  // Tu código: // Ojete: acá tengo que usar [] si o si para agregar, no puedo usar punto, 
+  // Tu código: 
+  
+  // Ojete: acá tengo que usar [] si o si para agregar, no puedo usar punto, 
   // porque property en realidad no es el nombre del argumento, detrás de property puede aparecer cualquier cosa, 
-  // es algo genérico, cuando es así uso corchete, sea apra agregar que solo para invocar. 
-  //EL punto lo uso cuando quiero invocar exactamente property, pero acá no es el nombre real que hay detras, 
+  // es algo genérico, cuando es así uso brakets, sea para agregar que solo para invocar. 
+  //El punto lo uso cuando quiero invocar exactamente property, pero acá no es el nombre real que hay detras, 
   // por detrás puede haber nombre, edad, fecha, etc. Si yo tuviera una de esas puntuales como parametro, 
   // ahí podría usar punto, pero acá no.
   objeto[property] = null;
   return objeto;
 }
+
 
 
 function invocarMetodo(objeto, metodo) {
@@ -53,6 +56,8 @@ function invocarMetodo(objeto, metodo) {
   objeto[metodo]();
 }
 
+
+
 function multiplicarNumeroDesconocidoPorCinco(objetoMisterioso) {
   // "objetoMisterioso" tiene una propiedad llamada "numeroMisterioso"
   // Multiplica el numeroMisterioso por 5 y devuelve el producto
@@ -62,21 +67,26 @@ objetoMisterioso {
   numeroMisterioso: numero que desconozco
 }
   */
+
   var resultado = objetoMisterioso.numeroMisterioso * 5;   // objetoM.numeroM son las cordenadas de a donde tiene que pararse
   return resultado;                                        // para hacer la cuenta que quiero que haga
 }
+
 
 
 function eliminarPropiedad(objeto, unaPropiedad) {
   // Elimina la propiedad de objeto cuyo nombre está pasado por el parametro unaPropiedad 
   // tip: tenes que usar bracket notation
   // Devuelve el objeto
-  // Tu código: // Ojote: de vuelta, acá el verdadero nombre no es unaPropiedad, 
+  // Tu código: 
+  
+  // Ojote: de vuelta, acá el verdadero nombre no es unaPropiedad, 
   // puede aparecer cualquier cosa detras, uso [] porque el punto me devolvería exactamente unaPropiedad
   // y ese no es el nombre verdadero que está detrás
 delete objeto[unaPropiedad];   // no uso comillas porque está pasado por el parametro, yo no se como se llama la propiedad,
 return objeto;                 // es una variable.
 }
+
 
 
 function nuevoUsuario(nombre, email, password) {
@@ -261,7 +271,8 @@ function agregarAmigo(usuario, nuevoAmigo) {
   // // Tu código:
   // A ver, sería algo así lo que existe:
   //  usuario {
-  //  amigos: [bla, ble, bli, blo, blu] // tengo que agregar nuevoAmigo al final, despues de blu
+  //  amigos: [bla, ble, bli, blo, blu] 
+  // tengo que agregar nuevoAmigo al final, despues de blu
 
 usuario.amigos.push(nuevoAmigo);       // usuario {
                                        //  amigos: [bla, ble, bli, blo, blu, nuevoAmigo] queda así
