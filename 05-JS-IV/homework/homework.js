@@ -293,11 +293,11 @@ function pasarUsuarioAPremium(usuarios) {
 usuarios  [
   usuario  {
     esPremium: false,
+  }
   usuario {
     esPremium: false,
   } etc
-  }
-]
+  ]
   */ // si me pide que defina como true el valor de cada propiedad esPremium, significa que antes eran false.
   // voy a usar el objeto map, que sirve para ejecutar una acción por cada elemento del array, tomandolo como argumento;
   // yo le pido que mapee usuarios y que por cada elemento dentro de usuarios, en este caso objetos usuario, a la propiedad esPremium de cada elemento, 
@@ -352,7 +352,7 @@ usuario {
   var acumulador = 0;
   for (var i = 0; i < usuario.posts.length; i++) {
     acumulador += usuario.posts[i].likes     // o sea acumulador = acumulador + usuario.posts[i].likes  
-  };                                         // suma al acumulador todos los likes de cada posts de usuario.
+  };                                         // suma al acumulador todos los likes de cada post de usuario.
 
 }
 
@@ -393,8 +393,8 @@ producto {
 
 
   // Ahora otra manera de resolverlo, usando el this, que es otra palabra reservada y que acá me dice: 
-  //tomá la propiedad precio de ese objeto y restale el producto de la propiedad precio por 
-  // la propiedad porcentajeDeDescuento del mismo objeto.
+ //tomá la propiedad precio de ese objeto y restale el producto de la propiedad precio por 
+ // la propiedad porcentajeDeDescuento del mismo objeto.
 
   producto.calcularPrecioDescuento = function () {
     return this.precio - this.precio * this.porcentajeDeDescuento;
