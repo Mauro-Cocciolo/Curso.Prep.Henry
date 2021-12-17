@@ -1,4 +1,14 @@
 // No cambies los nombres de las funciones.
+/*
+Muchas veces cuando creamos un objeto, estamos creando una plantilla. 
+En el lugar de copiar esa plantilla una y otra vez, 
+Javascript nos da acceso a lo que llamamos un constructor o class. 
+Las clases comparten gran parte de la misma funcionalidad que los objetos normales, 
+pero también se expande mucho en esa funcionalidad. 
+Las clases son útiles para crear muchos objetos que comparten 
+algunas de las mismas propiedades y métodos (como los usuarios en un sitio web).
+
+*/
 
 function crearUsuario() {
   // Crea una Clase de ES6 o una función constructor llamada "Usuario"
@@ -10,15 +20,22 @@ function crearUsuario() {
   // Tu código: // las instancias son las que creo a partir de la clase, que es el molde
 
   function Usuario(opciones) {
-    this.usuario = opciones.usuario; // estas de la derecha sonlas propiedades del objeto de la consigna
+    this.usuario = opciones.usuario; // estas de la derecha son las propiedades del objeto de la consigna
     this.nombre = opciones.nombre;
     this.email = opciones.email;
     this.password = opciones.password;
-  }  // ahora llamo al constructor Usuario, pongo prototype y el metodo que quiero agregar.
-  Usuario.prototype.saludar = function () {      // Así si me olvidé y se lo quiero agregar despues de que cerré la funcion,
+  }  // ahora agrego el metodo saludar. Llamo al constructor Usuario, pongo prototype y el metodo que quiero agregar.
+  Usuario.prototype.saludar = function () {      // Así si me olvidé y se lo quiero agregar despues de que cerré la funcion constructora,
     return "Hola, mi nombre es " + this.nombre;  // pero podría agregar el metodo en la función original tambien como hice abajo.
   } // this nombre es el nombre que se definirá en cada instancia.
   return Usuario;
+
+  /* So:
+  prototype: Las clases tienen una forma única de establecer un método una vez 
+  y dar acceso a cada objeto de esa clase a esos métodos. 
+  Esto se llama el prototype. 
+  Cada clase tiene una propiedad prototype , que luego podemos establecer en métodos
+  */
 
 // 
 
@@ -65,7 +82,7 @@ function agregarStringInvertida() {
   String.prototype.reverse= function () {
     return this.split("").reverse().join(""); // la palabra reservada split divide los elementos de un array, "toni" en  "t" "o" "n" "i",
   }                                 // y la  palabra reservada reverse los da vuelta "i" "n" "o" "t", 
-}                                   // y por ultimo la palabra join nos va a unir los caracteres que estaban separados,
+}                                   // y por ultimo la palabra join nos va a unir los caracteres que estaban separados, 
                       //para devolver la misma cadena que tenia al principio solo que invertida, como pide el ejercicio,
                      // quedaría "inot".
 
