@@ -65,7 +65,12 @@ function sonIguales(x, y) {
   } else {
     return false 
   } 
-  return x === y 
+
+  // O
+
+  return x === y
+
+  
 }
 
 function tienenMismaLongitud(str1, str2) {
@@ -73,6 +78,8 @@ function tienenMismaLongitud(str1, str2) {
   // De lo contrario, devuelve "false"
   // Tu código:
   return str1.length === str2.length  
+
+  // O
 
   if (str1.length === str2.length) {
     return true 
@@ -89,6 +96,10 @@ function menosQueNoventa(num) {
     return true
   } else {
     return false } 
+
+    // O
+
+    return num<90
 }
 
 function mayorQueCincuenta(num) {
@@ -99,7 +110,8 @@ function mayorQueCincuenta(num) {
     return true 
   } else {
     return false} 
-
+ 
+    // O
 
     return num>50
 }
@@ -162,13 +174,13 @@ function redondearNumero(num) {
 function redondearHaciaArriba(num) {
   // Redondea "num" hacia arriba (al próximo entero) y devuélvelo
   // Tu código:
-  return Math.ceil(num); 
+  return Math.ceil(num); // con floor redondeo hacia abajo
 }
 
 function numeroRandom() {
   //Generar un número al azar entre 0 y 1 y devolverlo
   //Pista: investigá qué hace el método Math.random()
-  return Math.random(); 
+  return Math.random(); // hace justamente eso
 }
 
 function esPositivo(numero) {
@@ -222,6 +234,8 @@ function retornarPerimetro(lado){
   var perimetro = lado * 4;
   return perimetro; 
 
+// O
+
   return lado * 4; 
   
 }
@@ -241,6 +255,10 @@ function deEuroAdolar(euro){
   //Escribe tu código aquí
   var cambiodeeuroadolar = euro * 1.2;
   return cambiodeeuroadolar; 
+
+
+  // O
+
 
   return euro * 1.2; 
 
@@ -264,9 +282,7 @@ function esVocal(letra){
       }
   } 
     return "Dato incorrecto";
-  }
-      
-          
+  }        
 
 
 
