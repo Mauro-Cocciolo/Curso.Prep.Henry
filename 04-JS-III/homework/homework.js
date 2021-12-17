@@ -12,6 +12,13 @@ function devolverUltimoElemento(array) {
   // Tu código:
   return array [array.length-1];
 }
+/*
+El length mide los elementos internos, que siempre van a ser uno mas que la posicion:
+123456 length
+012345 posiciones
+Si quiero retornar el ultimo elemento, en este caso 6, tengo que invocar la posicion
+5, que es 6-1.
+*/
 
 
 function obtenerLargoDelArray(array) {
@@ -119,6 +126,7 @@ function numeroMasGrande(numeros) {
   // "numeros" debe ser una matriz de enteros (int/integers)
   // Devuelve el número más grande
   // Tu código: 
+
   // Voy a crear la funcion bigger:
  // al final bigger termina con el i mas grande, 
  // los va recorriendo todos hasta el final del length, 
@@ -146,7 +154,7 @@ if (arguments.length===0){
 } else {
   var acumulador = 1;
   for (var i=0; i<arguments.length; i++){
-    acumulador=acumulador * arguments[i]
+    acumulador=acumulador * arguments[i]  // ac *= arg[i]
   }
   return acumulador;
 }
@@ -226,17 +234,19 @@ function todosIguales(arreglo) {
   //Escriba la función todosIguales, que indique si todos los elementos de un arreglo son iguales:
   //retornar true, caso contrario retornar false.
   //Escribe tu código aquí  
+  
   // Voy a hacer que se compare el i con el i que sigue y si no es igual es false
   // Ej: [2,2,2,2,2,2,2,2,87] con la funcion yo hago que aggeglo en la posicion i se compare con el que sigue, 
   // pongo el -1 porque si no el ultimo no tiene con que compararse y cae al vacío
 
   for (var i = 0; i < arreglo.length -1; i++) {
-    if (arreglo[i] !== arreglo[i + 1]) {
-      return false;
+    if (arreglo[i] !== arreglo[i + 1]) {  //lease: si arreglo en la posicion i es diferente 
+      return false;                       //a arreglo en la posicion siguiente 
     }
   }
   return true;
 } 
+
 
 
 function mesesDelAño(array) {
@@ -244,6 +254,7 @@ function mesesDelAño(array) {
   // "Enero", "Marzo" y "Noviembre", guardarlo en nuevo array y retornarlo.
   //Si alguno de los meses no está, devolver: "No se encontraron los meses pedidos"
   // Tu código:
+
   //Ojo: si no estan los tres tengo que devolver no se encontraron, tienen que estar los tres juntos si o si, aunque solo falte uno 
   // devuelvo que no se encontraron
 var mesesBuscados = [];
@@ -285,7 +296,9 @@ function breakStatement(numero) {
   //Si en algún momento el valor de la suma y la cantidad de iteraciones coinciden, debe interrumpirse la ejecución y 
   //devolver: "Se interrumpió la ejecución"
   //Pista: usá el statement 'break'
-  // Tu código: // abajo lo que dice es que si i es menor que 10 es porque se breiqueó, si no tendría que llegar
+  // Tu código: 
+  
+  // abajo lo que dice es que si i es menor que 10 es porque se breiqueó, si no tendría que llegar
   // al 10 sin problemas, pero si se cortó antes el i nunca llegó a 10 veces, que dicho sea de paso son 10 posiciones,
   // y entonces le hago returnear que se interrumpió la ejecución.
   var array = [];
