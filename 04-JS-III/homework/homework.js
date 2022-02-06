@@ -1,4 +1,22 @@
-// No cambies los nombres de las funciones. array [1,2,3,4,"hola", funcion (){}, true, etc] donde 1 es el elemento 0 y etc es el 7
+// No cambies los nombres de las funciones. 
+/*
+Los arrays son listas, matrices.
+Podemos pensar en las matrices como contenedores de almacenamiento para colecciones
+de datos. Construir una matriz es simple, declarar una variable y establecerla en [].
+O: var arreglo = new Array; después puedo usarlo en una función para pasarle cosas.
+Luego podemos agregar al contenedor (separadas por coma) tantas cadenas,
+números o booleanos como queramos y acceder a esos elementos cuando lo deseemos.
+Los arrays son objetos similares a una lista, cuyo prototipo proporciona metodos
+para realizar operaciones de recorrido y de mutacion. Tanto la longitud como el 
+tipo de los elementos de un array son variables.
+Ej:
+
+array [1,2,3,4,"hola", funcion (){}, true, etc] donde 1 es el elemento 0 
+y etc es el elemento 7.
+
+*/
+
+
 
 function devolverPrimerElemento(array) {
   // Devuelve el primer elemento de un  array (pasado por parametro)
@@ -32,8 +50,10 @@ function incrementarPorUno(array) {
   // "array" debe ser una matriz de enteros (int/integers)
   // Aumenta cada entero por 1
   // y devuelve el array
-  // Tu código: // el for funciona asi: empieza en la posicion 0 y despues sigue por 
-  // el array.legnth, y va pasando de posicion de uno en uno para cumplir lo que se le pide.
+  // Tu código: 
+  // el for funciona asi: empieza en la posicion 0 y despues sigue por 
+  // el array.legnth, y va pasando de posicion de uno en uno para cumplir lo que 
+  //se le pide.
   for (var i=0; i<array.length; i++) {
     array [i]= array [i] + 1;  // es lo mismo que decir array [i] += 1
   }
@@ -91,6 +111,23 @@ function arrayContiene(array, elemento) {
       }
   } return false;
 }
+/*
+EN EL RUN LO HICE PARA VER:
+
+var array=["caca","cacona"]
+var elemento="cacona" 
+function arrayContiene(array, elemento) {
+  
+  for (var i=0; i<array.length; i++) {
+      if(array[i] === elemento) {
+        return true;
+      }
+  } return false;
+}
+arrayContiene(array, elemento)            ME TIRÓ TRUE
+console.log(arrayContiene)                ME TIRÓ ƒ arrayContiene()
+
+*/
 
 
 function agregarNumeros(numeros) {
@@ -109,7 +146,9 @@ function promedioResultadosTest(resultadosTest) {
   // "resultadosTest" debe ser una matriz de enteros (int/integers)
   // Itera (en un bucle) los elementos del array, calcula y devuelve el promedio de puntajes
   // Tu código: 
-  // Ej práctico de lo que pide: [2,4,1,3,5] la suma es 15, el length de elementos es 5, y el promedio es 15/5=3
+  // Ej práctico de lo que pide:
+  // [2,4,1,3,5] la suma total de elementos es 15, el length o cantidad de 
+  //elementos es 5, y el promedio es 15/5=3
 
   var TotaldeElementos = resultadosTest.length;
   var suma = 0
@@ -142,25 +181,26 @@ return bigger;
 }
 
 
-function multiplicarArgumentos() {
-  // Usa la palabra clave `arguments` para multiplicar todos los argumentos y devolver el producto
-  // Si no se pasan argumentos devuelve 0. Si se pasa un argumento, simplemente devuélvelo
-  // Escribe tu código aquí: 
-// Ojete: arguments.length === 0 es lo mismo que si digo if (!arguments), 
-//es si no se pasan argumentos
 
-if (arguments.length===0){
-  return 0;
-} else {
-  var acumulador = 1;
-  for (var i=0; i<arguments.length; i++){
-    acumulador=acumulador * arguments[i]  // ac *= arg[i]
+function multiplicarArgumentos() {
+// Usa la palabra clave `arguments` para multiplicar todos los argumentos y devolver el producto
+// Si no se pasan argumentos devuelve 0. Si se pasa un argumento, simplemente devuélvelo
+// Escribe tu código aquí: 
+
+
+  if (arguments.length === 0) { //arguments.length === 0 es lo mismo que si digo 
+    //if (!arguments), es si no se pasan argumentos
+    return 0;
+  } else {
+    var acumulador = 1;
+    for (var i = 0; i < arguments.length; i++) {
+      acumulador = acumulador * arguments[i]  // ac *= arg[i]
+    }
+    return acumulador;
   }
-  return acumulador;
-}
 }
 /*
-Sería así: si por ejemplo arguments es un array de [2,5,7] y yo pongo ac=ac*arg[I],
+Sería así: si por ejemplo arguments es un array de [2,5,7] y yo pongo ac=ac*arg[i],
 siendo a su vez que ac=1, lo que va a hacer es 1*2 y le pasa el 2 al ac, eso en la primer vuelta, 
 en la segunda hace 2*5, pasa 10 al ac, en la tercer vuelta 10*7 y pasa el 70 al ac.
 */
@@ -174,7 +214,26 @@ function cuentoElementos(arreglo){
 var mayoradieciocho = arreglo.filter ((element) => element > 18);
 var total = mayoradieciocho.length;
 return total;
+/*
+El metodo filter() crea un nuevo array con todos los elementos que cumplen la condición
+implementada por la función dada. Ej:
 
+const words = ["spray", "limit", "elite", "exhuberant", "destruction", "present"];
+
+const result = words.filter (word => word.length > 6);
+
+console.log (result); me tira: Array ["exhuberant", "destruction", "present"]
+
+Lo chequié en el run, es así, y en word no hace falta poner el parentesis. 
+
+El metodo filter acepta tres parametros: current value o elemento actual (el que usé),
+index (es el indice del elemento actual del array, es opcional), array (el array sobre
+el que se ha llamado filter, tambien es opcional), thisArg (valor a utilizar como this 
+cuando se ejecuta callback, too es opcional).
+
+Devuelve siempre un nuevo array con los elementos que cumplen la condición. SI ningun 
+elemento cumple con la condición, se devolverá un array vacío.
+*/
 
 
 
@@ -183,7 +242,8 @@ for (var i = 0; i < arreglo.length; i++){
   if (arreglo [i] > 18) {
     mayoradieciocho.push(arreglo[i])
   }
-} var lacantidaddeelementosmayoresa18= mayoradieciocho.length;
+} 
+var lacantidaddeelementosmayoresa18= mayoradieciocho.length;
 return lacantidaddeelementosmayoresa18;
 }
 
@@ -215,29 +275,43 @@ function diaDeLaSemana(numeroDeDia) {
   }  
   } 
 
+
 function empiezaConNueve(n) {
   //Desarrolle una función que recibe como parámetro un número entero n. Debe retornar true si el entero 
-  //inicia con 9 y false en otro caso. // Ojete: los strings too los puedo tratar como formados por elementos []
+  //inicia con 9 y false en otro caso. 
+  // Ojete: los strings too los puedo tratar como formados por elementos []
   // y [0] seria el primer elemento
   //Escribe tu código aquí  
-  var str = String(n);
-  if (str[0] === "9") {
+  var str = String(n); //es lo mismo que: var str= n.toString() o var str= n + ""
+  if (str[0] === "9") {                      
     return true;
   } else {
     return false;
   }
-  
 }
+/*
+LO HICE EN EL RUN Y DIO RESULTADO TAMBIEN SIN EL ELSE:
+var n=999
+function empiezaConNueve(n) {
+    var str = String(n); 
+  if (str[0] === "9") {                      
+    return true;
+  }     return false;
+  }
+empiezaConNueve(n)       ME TIRA TRUE
+
+*/
+
 
 
 function todosIguales(arreglo) {
-  //Escriba la función todosIguales, que indique si todos los elementos de un arreglo son iguales:
-  //retornar true, caso contrario retornar false.
-  //Escribe tu código aquí  
+//Escriba la función todosIguales, que indique si todos los elementos de un arreglo son iguales:
+//retornar true, caso contrario retornar false.
+//Escribe tu código aquí  
   
-  // Voy a hacer que se compare el i con el i que sigue y si no es igual es false
-  // Ej: [2,2,2,2,2,2,2,2,87] con la funcion yo hago que aggeglo en la posicion i se compare con el que sigue, 
-  // pongo el -1 porque si no el ultimo no tiene con que compararse y cae al vacío
+//Voy a hacer que se compare el i con el i que sigue y si no es igual es false
+//Ej: [2,2,2,2,2,2,2,2,87] con la funcion yo hago que arreglo en la posicion i se compare con el que sigue, 
+//pongo el -1 porque si no el ultimo no tiene con que compararse y cae al vacío
 
   for (var i = 0; i < arreglo.length -1; i++) {
     if (arreglo[i] !== arreglo[i + 1]) {  //lease: si arreglo en la posicion i es diferente 
@@ -246,17 +320,34 @@ function todosIguales(arreglo) {
   }
   return true;
 } 
+/*
+EN EL RUN YO HICE:
+
+var arreglo=[2,2,2,2,2,2,2,2,87]
+function todosIguales(arreglo) {
+  for (var i = 0; i < arreglo.length -1; i++) {
+    if (arreglo[i] !== arreglo[i + 1]) {  
+      return false;                       
+    }
+  }
+  return true;
+} 
+todosIguales(arreglo)    Y ME TIRÓ FALSE, PORQUE CAGA TODO EL 87.
+
+*/
 
 
 
 function mesesDelAño(array) {
-  //Dado un array que contiene algunos meses del año desordenados, recorrer el array buscando los meses de 
-  // "Enero", "Marzo" y "Noviembre", guardarlo en nuevo array y retornarlo.
-  //Si alguno de los meses no está, devolver: "No se encontraron los meses pedidos"
-  // Tu código:
+//Dado un array que contiene algunos meses del año desordenados, recorrer el array buscando los meses de 
+// "Enero", "Marzo" y "Noviembre", guardarlo en nuevo array y retornarlo.
+//Si alguno de los meses no está, devolver: "No se encontraron los meses pedidos"
+// Tu código:
 
-  //Ojo: si no estan los tres tengo que devolver no se encontraron, tienen que estar los tres juntos si o si, aunque solo falte uno 
+  //Ojo: si no estan los tres tengo que devolver no se encontraron,
+  // tienen que estar los tres juntos si o si, aunque solo falte uno 
   // devuelvo que no se encontraron
+
 var mesesBuscados = [];
 for (var i = 0; i < array.length; i++) {
   if (
@@ -276,9 +367,9 @@ if (mesesBuscados.length === 3) {
 
 
 function mayorACien(array) {
-  //La función recibe un array con enteros entre 0 y 200. Recorrer el array y guardar en un nuevo array sólo los
-  //valores mayores a 100 (no incluye el 100). Finalmente devolver el nuevo array.
-  // Tu código:
+//La función recibe un array con enteros entre 0 y 200. Recorrer el array y guardar en un nuevo array sólo los
+//valores mayores a 100 (no incluye el 100). Finalmente devolver el nuevo array.
+// Tu código:
   var nuevoarray = [];
   for (var i = 0; i < array.length; i++) {
     if (array[i] > 100) {
@@ -290,20 +381,20 @@ function mayorACien(array) {
 
 
 function breakStatement(numero) {
-  //Iterar en un bucle aumentando en 2 el numero recibido hasta un límite de 10 veces.
-  //Guardar cada nuevo valor en un array. 
-  //Devolver el array
-  //Si en algún momento el valor de la suma y la cantidad de iteraciones coinciden, debe interrumpirse la ejecución y 
-  //devolver: "Se interrumpió la ejecución"
-  //Pista: usá el statement 'break'
-  // Tu código: 
+//Iterar en un bucle aumentando en 2 el numero recibido hasta un límite de 10 veces.
+//Guardar cada nuevo valor en un array. 
+//Devolver el array
+//Si en algún momento el valor de la suma y la cantidad de iteraciones coinciden, debe interrumpirse la ejecución y 
+//devolver: "Se interrumpió la ejecución"
+//Pista: usá el statement 'break'. es un statement o declaración
+// Tu código: 
   
-  // abajo lo que dice es que si i es menor que 10 es porque se breiqueó, si no tendría que llegar
-  // al 10 sin problemas, pero si se cortó antes el i nunca llegó a 10 veces, que dicho sea de paso son 10 posiciones,
-  // y entonces le hago returnear que se interrumpió la ejecución.
+//abajo lo que dice es que si i es menor que 10 es porque se breiqueó, si no tendría que llegar
+//al 10 sin problemas, pero si se cortó antes el i nunca llegó a 10 veces, que dicho sea de paso son 10 posiciones,
+//y entonces le hago returnear que se interrumpió la ejecución.
   var array = [];
   for (var i = 0; i < 10; i++) {
-    numero = numero + 2;               // numero += 2
+    numero = numero + 2;  // numero += 2
     if (numero === i) {
       break;
     } else {
@@ -332,12 +423,18 @@ function continueStatement(numero) {
     if (i === 5) {
       continue;
     } else {
-      numero = numero + 2;
+      numero = numero + 2; // o numero += 2
       array.push(numero);
     }
   }
   return array;
-}
+} 
+
+/*
+La sentencia continue (seguir), termina la ejecución de las sentencias de la iteración
+actual del bucle actual o la etiqueta y continua la ejecución del bucle con la 
+próxima iteración.
+*/
 
 
 // No modificar nada debajo de esta línea

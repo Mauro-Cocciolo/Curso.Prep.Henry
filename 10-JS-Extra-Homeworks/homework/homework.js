@@ -8,23 +8,27 @@ function deObjetoAmatriz(objeto){
       D: 1,
       B: 2,
       C: 3
-    }) ➞ [["D", 1], ["B", 2], ["C", 3]]*/
+    }) ➞ [["D", 1], ["B", 2], ["C", 3]]*///Es como una matriz de matrices.
   //Escribe tu código aquí
-  return objeto = (Object.entries(objeto)); // Puedo usar esta funcion constructora Object (es un metodo o funcion constructora) que lo que hace
-//es crear un nuevo objeto al que nosotros le decimos cómo queremos que lo cree, en este caso hace
-//eso que me pide la consigna mediante el metodo entries, crea el nuevo objeto con todas las entradas. 
-//Este constructor Object tambien se puede usar de otras formas: 
-//Objetc.value, Object.key (para valores o propiedades solo).
-//Lo que hace es pasar todo a un arreglo, a una matriz. 
+  return objeto = (Object.entries(objeto)); 
+/*Puedo usar esta funcion constructora Object (es un metodo o funcion constructora) 
+que lo que hace es crear un nuevo objeto al que nosotros le decimos cómo 
+queremos que lo cree, en este caso hace eso que me pide la consigna mediante 
+el metodo entries, que devuelve un array constituido por los pares clave-valor 
+del objeto que tenemos como parametro en la funcion deObjetoAmatriz. 
+Este constructor Object tambien se puede usar de otras formas: 
+Objetc.value (para valores), Object.key (para propiedades).
+Lo que hace es pasar todo a un arreglo, a una matriz. */
 
 // Too puedo resolver este ejercicio con for:
 
   var array = [];
 
-  for (i in objeto) {  // Este metodo hace que se itere el objeto en espera de la orden que sigue.
+  for (i in objeto) {//Este metodo hace que se itere el objeto en espera de la orden que sigue.
     array.push([i, objeto[i]]);// Y le ordeno que pushee dentro del array nuevo, desde la posición i, lo que
-  // haya en el objeto sub i. Es decir, que coloque lo que tenemos dentro del objeto (las clave:valor,)
-  // en la matriz que estamos creando, así, autometicamente, pasa lo que piden en la consigna. 
+  //haya en el objeto sub i. Es decir, que coloque lo que tenemos dentro del objeto (las clave:valor, es decir,
+  // objeto i: objeto sub i, es decir, i : object [i]) en la matriz que estamos creando, así, 
+  //autometicamente, pasa lo que piden en la consigna. 
   }
   return array;  
 }
@@ -35,33 +39,45 @@ function numberOfCharacters(string) {
   //La función recibe un string. Recorre el srting y devuelve el caracter con el número de veces que aparece 
   //en formato par clave-valor.
   //Ej: Recibe ---> "adsjfdsfsfjsdjfhacabcsbajda" || Devuelve ---> { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 } 
-  //Escribe tu código aquí
-  var obj = {};
+  //Escribe tu código aquí:
+  
+  var obj = {}; // lo que me piden es que cree un objeto con el contenido del string 
+  //y la cantidad de veces que aparece. Por eso creo un objeto vacío.
   for (let i = 0; i < string.length; i++) {
     if (Object.keys(obj).includes(string[i])) {
       obj[string[i]] = obj[string[i]] + 1 // esto es, si incluye i, por ejemplo a, que lo sume una vez, 
-      continue                            // si parece de nuevo, que lo sume una vez, de nuevo, una vez, 
+      continue                            // si aparece de nuevo, que lo sume una vez, de nuevo, una vez, 
     }                                     // y así con todos los i.
     obj[string[i]] = 1
   }
   return obj;
 }
 /*
-SO: nosotros estamos recibiendo "adsjfdsfsfjsdjfhacabcsbajda" y tenemos que devolver { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 }.
-Entonces primero creo el objeto que es el que va a devolver: var obj={}, y vamos a iterarlo en un for, 
-siempre y cuando se cumpla la siguiente regla: 
-el Objeto es una fcion constructora de javascript, y para nosotros poder encontrar las letras repetidas, 
-tenemos que hacerlo a traves de las claves, las keys, que serian las propiedades. Por eso le pido al constructor 
-que use las keys del objeto: Object.keys(obj). Y, sobre ese contructor, le estamos preguntando si incluye 
-las strings que nos estan pasando en las diferentes posiciones: includes(string[i]), porque 
-este bucle lo va a hacer varias veces y si encuentra la letra: obj [string[i]], la va a guardar dentro de
-la variable obj, por lo que obj en la posicion sub i va a ser igual al obj sub i + 1: obj [string[i]] + 1, 
-siendo que el +1 agrega la letra que encontró. Onemos el continue orque si la encuentra y 
-no pusimos continue, va a dejar de iterar, mientras que con el continue va a seguir buscando 
-tantas veces hasta finalizar, y va a ir sumando cada una de las letras que encuentre. Y entonces
-si nos va a devolver que  a: 5, b: 2, c: 2, etc. En caso de que no haya mas de una letra, 
+SO: nosotros estamos recibiendo "adsjfdsfsfjsdjfhacabcsbajda" y tenemos que devolver 
+{ a: 5, b: 2, c: 2, d: 4, f: 4, h: 1, j: 4, s: 5 }.
+Entonces primero creo el objeto que es el que va a devolver: 
+var obj={}, 
+y vamos a iterarlo en un for, siempre y cuando se cumpla la siguiente regla: 
+El Objeto es una fcion constructora de javascript, y para nosotros poder encontrar 
+las letras repetidas, tenemos que hacerlo a traves de las claves, las keys, 
+que serian las propiedades. Porque las letras del string van a ser las keys 
+del nuevo objeto. Por eso le pido al constructor que use las keys del objeto: 
+Object.keys(obj). 
+Y, sobre ese contructor, le estamos preguntando si incluye las strings que nos estan
+pasando en las diferentes posiciones: includes(string[i]), 
+porque este bucle lo va a hacer varias veces y si encuentra la letra, entonces 
+obj [string[i]], la va a guardar dentro de la variable obj, 
+por lo que obj en la posicion sub i va a ser igual al obj sub i + 1: 
+obj [string[i]] + 1, 
+siendo que el +1 agrega un uno como valor a la letra, alias key del objeto, 
+que encontró. 
+Ponemos el continue porque si la encuentra y no pusimos continue, 
+va a dejar de iterar, mientras que con el continue va a seguir buscando 
+tantas veces hasta finalizar, y va a ir sumando cada una de las letras que encuentre. 
+Y entonces sí nos va a devolver que  a: 5, b: 2, c: 2, etc. 
+En caso de que no haya mas de una letra, 
 es decir, si no se repite, lo que va a hacer es: obj [string[i]] = 1, o sea,
-la va a mandar al string y que la agregue al objeto creado con 1 como valor. 
+la va a mandar al objeto creado con 1 como valor. 
 Al final, devuelvo en nuevo objeto. 
 */
 
@@ -85,13 +101,14 @@ function capToFront(s) {
   return cadena.concat("", cadena2); // o too puede ser: return cadena + cadena2
 }
 /*
-Vamos a tener dos cadenas, una de mayuscula y un ade minuscula, ambas son un string.
+Vamos a tener dos cadenas, una de mayuscula y otra de minuscula, ambas son un string.
 Entonces, iteramos soyHenry y tenemos que decirle que si s en la posicion sub i es igual
-a s en la posicion sub i mayuscula, lo tenemos que agregar a la cadena de mayuscula que es cadena:
+a s en la posicion sub i mayuscula, o sea, si es una mayuscula,
+lo tenemos que agregar a la cadena de mayuscula que es cadena:
 cadena =+s[i]. De lo contrario que lo agregue a la cadena2 que es de minuscula.
-Por ultimo tengo que retornar HENRYsoy: return.cadena.concat("", cadena2), en donde las
-comillas estan juntas para que no haya separacion.O, mas facil, puedo hacer 
-cadena + cadena2.
+Por ultimo tengo que retornar HENRYsoy todo junto:
+return.cadena.concat("", cadena2), en donde las comillas estan juntas 
+para que no haya separacion. O, mas facil, puedo hacer cadena + cadena2.
 */
 
 
@@ -101,19 +118,33 @@ function asAmirror(str) {
   //Escribe una función que tome la frase recibida y la devuelva de modo tal que se pueda leer de izquierda a derecha 
   //pero con cada una de sus palabras invertidas, como si fuera un espejo.
   //Ej: Recibe ---> "The Henry Challenge is close!" || Devuelve ---> "ehT yrneH egnellahC si !esolc"
-  //Escribe tu código aquí
+  //Escribe tu código aquí:
 
   var prhase = str.split(" ").map(function(item) {
     return item.split("").reverse().join("");
   }).join(" ")
   return prhase;
   /*
-Con split(" ") dividio la cadena, le dijo que la separa mediante un espacio.
-Map nos permite que esos item que separé los devuelva, los retorne sin espacio, en reverse,
-y que nos lo muestre tambien sin espacios, juntos. Despues viene el .join(" ") del final, 
-que le pide que devuelva cada uno de los item por separado ademas de dado vuelta (cada palabrita
-  de la frase).
+Con split(" ") dividio la cadena, le dijo que la separa mediante un espacio, 
+o sea [“The”, “Henry”, etc].
+Con item.split("") hace: ["T","h","e"], ["H","e", "n",etc]. 
+A esto le aplica el reverse para dar vuelta las letras:["T","h","e"] pasa a ["e", "h", "T"].
+Con join("") vuelve a unir los elementos del array, une otra vez las letras ["ehT"].
+Con el join(" ") del final, vuelve a unir el array completo, es decir
+pasa "ehT", "yrneH".... a "ehT yrneH ".
+Map siempre devuelve un arreglo al final.
+
+
+Split es un método de String que convierte una cadena de texto en un array. 
+Cada elemento del array es una división del string de acuerdo a como se hizo el SPLIT.
+Ejemplo:
+“Mauro preparate un asado en año nuevo, dale, copate”
+Si yo le paso un Split(“,”);
+Fijate que entre comillas le mandé una coma. El resultado va a ser:
+([“Mauro preparate un asado en año nuevo” , “dale” , “copate”])
+
   */
+ 
 } 
 
 
@@ -125,16 +156,19 @@ function capicua(numero){
   //Escribe tu código aquí
 /*
 Primero vamos a transformar numero en un string. 
-"12345" pasa a ser
-["1" "2" "3" "4" "5"]
+12345 pasa a ser ["12345"]
 Despues vamos a crear un numero2 que va
-a ser un string vacío por ahora. Luego vamos a dar vuelta el string: con split transformo
-el string en un array de string, con los numeros separados, con reverse despues los doy vuelta, 
-y con join los vuelvo a juntar ya dados vuelta. Luego: le digo que si numero es igual a numero2, 
-es decir, si tiene el mismo valor, que nos devuelva que es capicua, else que devuelva que
+a ser un string vacío por ahora. 
+Luego vamos a dar vuelta el string: con split transformo el string en un array 
+de string ["1","2","3","4","5"], con los numeros separados, 
+con reverse despues los doy vuelta, ["5","4","3","2","1"]
+y con join los vuelvo a juntar ya dados vuelta ["54321"]. 
+Luego: le digo que si numero es igual a numero2, 
+es decir, si tiene el mismo valor, que nos devuelva que es capicua, 
+else que devuelva que
 no es capicua.
 */
-var numero = numero.toString();
+var numero = numero.toString(); //o var numero=numero+"" o var numero=String(numero)
 var numero2 = ""; 
 
 numero2 = numero.split("").reverse().join("");
@@ -164,9 +198,9 @@ function deleteAbc(cadena){
 }
 /*
 Primero tengo una cadena que es la que nos pasan por parametro, yo quiero crear una cadena2 modificada
-que no contenga las letras a, b oc, o, la misma cadena si es que no tuviera a, b o c. 
+que no contenga las letras a, b o c, o, la misma cadena si es que no tuviera a, b o c. 
 SO, creo la cadena2 que, por ahora, es un string vacio. Hago un bucle for clasico, que va a 
-iniciar en la posicion 0 (var i=0), i va a ser menor a la cantidad (i>cadena.length)
+iniciar en la posicion 0 (var i=0), i va a ser menor a la cantidad (i<cadena.length)
 y va a ir recorriendo los i (i++). Al for, con el if, le digo que cada vez que itere
 en esta cadena se fije si la posicion (i) es distinta de a, b o c, y si es así, que 
 la sume a la cadena2. AL final, claro, devuelvo la cadena2, que no va a contener 
@@ -179,7 +213,7 @@ function sortArray(arr) {
   //La función recibe una matriz de strings. Ordena la matriz en orden creciente de longitudes de cadena
   //Ej: Recibe ---> ["You", "are", "beautiful", "looking"] || Devuelve ---> [“You", "are", "looking", "beautiful"]
   //Escribe tu código aquí
-/*
+
 
   for (let i = 0; i < arr.length; i++){
     var str = arr[i]
@@ -192,7 +226,8 @@ function sortArray(arr) {
   }
   return arr;
   
-  */
+  
+
   /* GUARDA, ES MEDIO AL PEDO, NO SE ENTIENDE
 SO: Planteo un for. Lo primero qu etengo que hacer es recorrer el array, iterara en cada 
 uno de los componentes del array que son 4 string distintos ["You", "are", "beautiful", "looking"].
@@ -216,13 +251,24 @@ en vez de para adelante.
     return a.length - b.length
   });
   return order;
+
+  //o
+  
+ var order = arr.sort(function(a,b) {  //si hago así es lo mismo, porque 
+    return a.length - b.length        //el metodo sort devuelve siempre un arreglo.
+  });
+  return order;
+
+
 }
 /*
-Vamos a crear una nueva variable order (elijio ese nombre porque vamos a ordenar las cosas en un nuevo orden).
-A esta nueva funcion, le pasamos un Array nuevo.
-Hay un metodo, que se llama sort, que es una funcion y que nos va a tomar como dos parametros, 
+Vamos a crear una nueva variable order (eligio ese nombre porque vamos a ordenar las 
+cosas en un nuevo orden).
+A esta nueva funcion, le pasamos un Array nuevo (creo una instancia de la clase Array 
+que se llama order, como el audi en Car).
+Hay un metodo, que se llama sort, que es una funcion y que nos va a tomar dos parametros, 
 que serian a y b. 
-Despues le decimos que nos devuelva l alongitud de a - la de b. Retorno order.
+Despues le decimos que nos devuelva la longitud de a - la de b. Retorno order.
 ¿Qué hace sort? ordena los elementos de un array y devuelve el arreglo ordenado. O sea
 nos compara los parametros que le pasamos y los ordena por longitud.
 */

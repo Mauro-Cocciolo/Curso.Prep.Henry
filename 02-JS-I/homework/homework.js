@@ -225,6 +225,10 @@ function obtenerAreaRectangulo(alto, ancho) {
   // Tu código:
   var area = alto * ancho; 
   return area; 
+
+  //o
+
+  return alto * ancho; 
 }
 
 
@@ -246,6 +250,10 @@ function areaDelTriangulo(base, altura){
   //Escribe tu código aquí
 var areatriang = (base * altura) / 2;
 return areatriang;  
+
+//o
+
+return (base * altura) / 2; 
 }
 
 
